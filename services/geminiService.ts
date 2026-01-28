@@ -7,7 +7,7 @@ const apiKey = process.env.API_KEY || '';
 // We will handle the "missing key" gracefully in the UI logic or assume it exists.
 const ai = new GoogleGenAI({ apiKey });
 
-export const analyzeSolarData = async (recentData: StepsDataPoint[]): Promise<{ summary: string; hazardLevel: string }> => {
+export const analyzeSolarData = async (recentData: StepsDataPoint[]): Promise<{ summary: string; hazardLevel: 'LOW' | 'MODERATE' | 'HIGH' | 'UNKNOWN' }> => {
   if (!apiKey) {
     return { 
         summary: "API Key missing. Unable to perform AI analysis on solar wind telemetry.", 
@@ -53,7 +53,7 @@ export const analyzeSolarData = async (recentData: StepsDataPoint[]): Promise<{ 
     const text = response.text;
     if (!text) throw new Error("No response from AI");
     
-    return JSON.parse(text);
+    return JSON.parse(text) as { summary: string; hazardLevel: 'LOW' | 'MODERATE' | 'HIGH' };
   } catch (error) {
     console.error("Gemini Analysis Failed:", error);
     return {

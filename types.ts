@@ -23,6 +23,6 @@ export interface SystemHealth {
 
 export interface AnalysisResult {
   summary: string;
-  hazardLevel: 'LOW' | 'MODERATE' | 'HIGH';
+  hazardLevel: 'LOW' | 'MODERATE' | 'HIGH' | 'UNKNOWN';
   lastUpdated: string;
 }

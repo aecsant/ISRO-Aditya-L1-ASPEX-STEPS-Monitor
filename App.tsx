@@ -220,7 +220,8 @@ const App: React.FC = () => {
                                 <span className={`text-xs font-bold px-2 py-1 rounded ${
                                     aiAnalysis.hazardLevel === 'HIGH' ? 'bg-red-900 text-red-200' :
                                     aiAnalysis.hazardLevel === 'MODERATE' ? 'bg-yellow-900 text-yellow-200' :
-                                    'bg-green-900 text-green-200'
+                                    aiAnalysis.hazardLevel === 'LOW' ? 'bg-green-900 text-green-200' :
+                                    'bg-gray-700 text-gray-300'
                                 }`}>{aiAnalysis.hazardLevel}</span>
                             </div>
                             <p className="text-[10px] text-gray-600 text-right">Updated: {aiAnalysis.lastUpdated}</p>
