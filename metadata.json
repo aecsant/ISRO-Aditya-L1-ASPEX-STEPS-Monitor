@@ -1,0 +1,5 @@
+{
+  "name": "Aditya-L1 ASPEX-STEPS Monitor",
+  "description": "Real-time visualization dashboard for the ASPEX-STEPS payload on ISRO's Aditya-L1 mission, monitoring solar wind particle flux.",
+  "requestFramePermissions": []
+}
